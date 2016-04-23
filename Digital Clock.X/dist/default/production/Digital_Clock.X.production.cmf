@@ -11,6 +11,10 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
+reset_vec CODE 0 0 0 2 2
+end_init CODE 0 20 20 2 2
+config CONFIG 0 8007 8007 2 2
 $dist/default/production\Digital_Clock.X.production.obj
 cinit CODE 0 22 22 18 2
 text1 CODE 0 14C 14C 2A 2
@@ -29,10 +33,6 @@ bssBANK0 BANK0 1 2B 2B 8 1
 idataBANK0 CODE 0 1B6 1B6 B 2
 dataBANK0 BANK0 1 20 20 B 1
 bssCOMMON COMMON 1 7D 7D 1 1
-$C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
-reset_vec CODE 0 0 0 2 2
-end_init CODE 0 20 20 2 2
-config CONFIG 0 8007 8007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -113,31 +113,31 @@ STRING 1CB-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Digital_Clock.X.production.obj
-22 cinit CODE >634:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-22 cinit CODE >637:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-22 cinit CODE >672:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-23 cinit CODE >676:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-24 cinit CODE >677:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-25 cinit CODE >678:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-26 cinit CODE >679:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-27 cinit CODE >680:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-28 cinit CODE >681:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-29 cinit CODE >682:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-2A cinit CODE >683:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-2B cinit CODE >698:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-2C cinit CODE >699:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-2D cinit CODE >700:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-2E cinit CODE >701:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-2F cinit CODE >702:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-30 cinit CODE >703:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-31 cinit CODE >704:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-32 cinit CODE >705:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-33 cinit CODE >706:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-34 cinit CODE >707:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-36 cinit CODE >713:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-36 cinit CODE >715:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-37 cinit CODE >716:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-38 cinit CODE >717:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
+22 cinit CODE >634:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+22 cinit CODE >637:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+22 cinit CODE >672:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+23 cinit CODE >676:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+24 cinit CODE >677:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+25 cinit CODE >678:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+26 cinit CODE >679:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+27 cinit CODE >680:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+28 cinit CODE >681:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+29 cinit CODE >682:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+2A cinit CODE >683:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+2B cinit CODE >698:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+2C cinit CODE >699:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+2D cinit CODE >700:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+2E cinit CODE >701:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+2F cinit CODE >702:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+30 cinit CODE >703:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+31 cinit CODE >704:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+32 cinit CODE >705:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+33 cinit CODE >706:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+34 cinit CODE >707:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+36 cinit CODE >713:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+36 cinit CODE >715:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+37 cinit CODE >716:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+38 cinit CODE >717:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
 4 intentry CODE >180:C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 9 intentry CODE >182:C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 B intentry CODE >183:C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
@@ -247,14 +247,14 @@ B4 text3 CODE >173:C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital 
 1C7 maintext CODE >114:C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 1C7 maintext CODE >115:C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 1CA maintext CODE >118:C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
-1C1 inittext CODE >687:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-1C1 inittext CODE >688:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-1C2 inittext CODE >689:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-1C2 inittext CODE >690:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-1C3 inittext CODE >691:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-1C4 inittext CODE >692:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-1C5 inittext CODE >693:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
-1C6 inittext CODE >694:C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.
+1C1 inittext CODE >687:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+1C1 inittext CODE >688:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+1C2 inittext CODE >689:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+1C2 inittext CODE >690:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+1C3 inittext CODE >691:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+1C4 inittext CODE >692:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+1C5 inittext CODE >693:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
+1C6 inittext CODE >694:C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -289,12 +289,12 @@ _LATB 10D 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 _PIE1 91 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 _WPUA 20C 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 _WPUB 20D 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
+___sp 0 0 STACK 2 stack C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
 _main 38E 0 CODE 0 maintext dist/default/production\Digital_Clock.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 __end_of_updateDisplay 16A 0 CODE 0 text3 dist/default/production\Digital_Clock.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
-start 40 0 CODE 0 init C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
+start 40 0 CODE 0 init C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
 ttemp 7E 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
@@ -312,12 +312,12 @@ ttemp2 84 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 _DISPLAY_MAPPING 20 0 BANK0 1 dataBANK0 dist/default/production\Digital_Clock.X.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
-intlevel1 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
-intlevel2 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
-intlevel3 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
-intlevel4 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
-intlevel5 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
+intlevel0 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
+intlevel1 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
+intlevel2 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
+intlevel3 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
+intlevel4 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
+intlevel5 0 0 CODE 0 functab C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
@@ -349,7 +349,7 @@ _OSCCON 99 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 __pcstackBANK0 33 0 BANK0 1 cstackBANK0 dist/default/production\Digital_Clock.X.production.obj
 _TMR0IF 5A 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 _TMR1IF 88 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
+___int_sp 0 0 STACK 2 stack C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -492,7 +492,7 @@ __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\Digital_Clock.X.production.ob
 _timeMinutes 7D 0 COMMON 1 bssCOMMON dist/default/production\Digital_Clock.X.production.obj
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
 __pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\Digital_Clock.X.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
@@ -532,8 +532,8 @@ __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Digital_Clock.X.production.ob
 __Hinittext 0 0 ABS 0 inittext -
 _onInterrupt 8 0 CODE 0 intentry dist/default/production\Digital_Clock.X.production.obj
 __CFG_VCAPEN$OFF 0 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
-stackhi 21EF 0 ABS 0 - C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
-stacklo 201C 0 ABS 0 - C:\Users\MACFRE~1\AppData\Local\Temp\s7bs.obj
+stackhi 21EF 0 ABS 0 - C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
+stacklo 201C 0 ABS 0 - C:\Users\MACFRE~1\AppData\Local\Temp\s8k8.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Digital_Clock.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -

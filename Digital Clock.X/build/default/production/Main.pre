@@ -6128,7 +6128,7 @@ void setup() {
 
 OSCCON = 0x68;
 OPTION_REG = 0x00;
-TMR1H = 0xFF;
+TMR1H = 0x3F;
 TMR1L = 0xFF;
 T1CON = 0x8D;
 
@@ -6224,7 +6224,7 @@ if (TMR1IF) {
 TMR1IF = 0x00;
 
 
-TMR1H = 0xEF;
+TMR1H = 0x3F;
 TMR1L = 0xFF;
 
 

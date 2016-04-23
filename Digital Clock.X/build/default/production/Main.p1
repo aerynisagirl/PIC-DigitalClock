@@ -4580,9 +4580,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 81: OPTION_REG = 0x00;
 "81
 [e = _OPTION_REG -> -> 0 `i `uc ]
-[; ;Main.c: 82: TMR1H = 0xFF;
+[; ;Main.c: 82: TMR1H = 0x3F;
 "82
-[e = _TMR1H -> -> 255 `i `uc ]
+[e = _TMR1H -> -> 63 `i `uc ]
 [; ;Main.c: 83: TMR1L = 0xFF;
 "83
 [e = _TMR1L -> -> 255 `i `uc ]
@@ -4806,9 +4806,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 183: TMR1IF = 0x00;
 "183
 [e = _TMR1IF -> -> 0 `i `b ]
-[; ;Main.c: 186: TMR1H = 0xEF;
+[; ;Main.c: 186: TMR1H = 0x3F;
 "186
-[e = _TMR1H -> -> 239 `i `uc ]
+[e = _TMR1H -> -> 63 `i `uc ]
 [; ;Main.c: 187: TMR1L = 0xFF;
 "187
 [e = _TMR1L -> -> 255 `i `uc ]

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Tue Mar 22 11:29:58 2016
+                                                                                               Sat Apr 23 09:03:57 2016
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	16F1783
@@ -556,8 +556,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    550                           ;Main.c: 81: OPTION_REG = 0x00;
    551  014F  0195               	clrf	21	;volatile
    552                           
-   553                           ;Main.c: 82: TMR1H = 0xFF;
-   554  0150  30FF               	movlw	255
+   553                           ;Main.c: 82: TMR1H = 0x3F;
+   554  0150  303F               	movlw	63
    555  0151  0020               	movlb	0	; select bank0
    556  0152  0097               	movwf	23	;volatile
    557                           
@@ -680,8 +680,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    674                           ;Main.c: 183: TMR1IF = 0x00;
    675  000B  1011               	bcf	17,0	;volatile
    676                           
-   677                           ;Main.c: 186: TMR1H = 0xEF;
-   678  000C  30EF               	movlw	239
+   677                           ;Main.c: 186: TMR1H = 0x3F;
+   678  000C  303F               	movlw	63
    679  000D  0097               	movwf	23	;volatile
    680                           
    681                           ;Main.c: 187: TMR1L = 0xFF;
@@ -1577,7 +1577,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Tue Mar 22 11:29:58 2016
+Symbol Table                                                                                   Sat Apr 23 09:03:57 2016
 
               __CFG_CP$OFF 0000                         l56 01CA               ___awdiv@sign 0034  
              __CFG_CPD$OFF 0000               ___awmod@sign 0076               __CFG_BORV$HI 0000  

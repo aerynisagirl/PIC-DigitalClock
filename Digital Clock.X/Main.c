@@ -2,8 +2,8 @@
  *  Digital Clock - A simple digital clock project to help me learn PIC  *
  *  Created by mikemadealarms on January 6, 2016 at 4:38 PM              *
  * --------------------------------------------------------------------- *
- *  Last modified by mikemadealarms on January 6, at 4:38 PM             *
- *  Last modification made was: Add a few of the required functions      *
+ *  Last modified by mikemadealarms on April 23, at 9:02 AM             *
+ *  Last modification made was: Clean up code a bit to make it pretty    *
  *************************************************************************/
 
 #include <xc.h>
@@ -79,7 +79,7 @@ void setup() {
     //Timing Related Registers
     OSCCON = 0x68;      //Set the internal oscillator to run at 125kHz
     OPTION_REG = 0x00;  //Enable the internal weak pull-ups on PORTB and set the Timer0 module to run with no pre-scaler from the internal oscillator
-    TMR1H = 0xFF;       //Set the highest byte of the Timer1 module counter
+    TMR1H = 0x3F;       //Set the highest byte of the Timer1 module counter
     TMR1L = 0xFF;       //Set the lowest byte of the Timer1 module counter
     T1CON = 0x8D;       //Enable the Timer1 module and set it to use the internal low frequency oscillator
     
@@ -183,7 +183,7 @@ void interrupt onInterrupt() {
         TMR1IF = 0x00;  //Clear the Timer1 module overflow interrupt flag to prevent false interrupt
         
         //Set the Timer1 module to interrupt after half a second has passed in real time
-        TMR1H = 0xEF;   //Reset the highest byte of the Timer1 module counter
+        TMR1H = 0x3F;   //Reset the highest byte of the Timer1 module counter
         TMR1L = 0xFF;   //Reset the lowest byte of the Timer1 module counter
         
         //Update the real time clock and update the display to display the current time
