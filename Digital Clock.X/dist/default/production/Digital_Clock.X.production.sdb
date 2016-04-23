@@ -17,15 +17,15 @@
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
 "78 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 [v _setup setup `(v  1 e 0 0 ]
-"114
+"115
 [v _main main `(v  1 e 0 0 ]
-"124
+"125
 [v _updateClock updateClock `(v  1 e 0 0 ]
-"145
+"146
 [v _multiplexDisplay multiplexDisplay `(v  1 e 0 0 ]
-"160
+"161
 [v _updateDisplay updateDisplay `(v  1 e 0 0 ]
-"180
+"181
 [v _onInterrupt onInterrupt `II(v  1 e 0 0 ]
 "337 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1783.h
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
@@ -59,6 +59,10 @@
 [v _WPUA WPUA `VEuc  1 e 1 @524 ]
 "4394
 [v _WPUB WPUB `VEuc  1 e 1 @525 ]
+"11888
+[v _RB4 RB4 `VEb  1 e 0 @108 ]
+"11890
+[v _RB5 RB5 `VEb  1 e 0 @109 ]
 "12084
 [v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
 "12100
@@ -77,25 +81,25 @@
 [v _displayValue displayValue `[5]uc  1 e 5 0 ]
 "71
 [v _setTimer setTimer `ui  1 e 2 0 ]
-"114
+"115
 [v _main main `(v  1 e 0 0 ]
 {
-"121
+"122
 } 0
 "78
 [v _setup setup `(v  1 e 0 0 ]
 {
-"107
+"108
 } 0
-"180
+"181
 [v _onInterrupt onInterrupt `II(v  1 e 0 0 ]
 {
-"201
+"249
 } 0
-"160
+"161
 [v _updateDisplay updateDisplay `(v  1 e 0 0 ]
 {
-"173
+"174
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -121,13 +125,13 @@
 [v ___awdiv@dividend dividend `i  1 p 2 9 ]
 "42
 } 0
-"124 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
+"125 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 [v _updateClock updateClock `(v  1 e 0 0 ]
 {
-"142
+"143
 } 0
-"145
+"146
 [v _multiplexDisplay multiplexDisplay `(v  1 e 0 0 ]
 {
-"157
+"158
 } 0

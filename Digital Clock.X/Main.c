@@ -2,8 +2,8 @@
  *  Digital Clock - A simple digital clock project to help me learn PIC  *
  *  Created by mikemadealarms on January 6, 2016 at 4:38 PM              *
  * --------------------------------------------------------------------- *
- *  Last modified by mikemadealarms on April 23, at 9:02 AM             *
- *  Last modification made was: Clean up code a bit to make it pretty    *
+ *  Last modified by mikemadealarms on April 23, at 12:35 AM             *
+ *  Last modification made was: Added in functionality to set the time   *
  *************************************************************************/
 
 #include <xc.h>
@@ -37,7 +37,7 @@
  *******************/
 
 //Clock Configuration
-#define CLOCK_SET_SPEED 150  //The speed at which the time frame that is being set increments, provides a delay to make use of the clock easier
+#define CLOCK_SET_SPEED 500  //The speed at which the time frame that is being set increments, provides a delay to make use of the clock easier
 
 //Display Mapping
 unsigned char DISPLAY_MAPPING[] = {
@@ -78,13 +78,13 @@ unsigned int setTimer = 0;  //Used as a counter to provide a delay in between ti
 void setup() {
     //Timing Related Registers
     OSCCON = 0x68;      //Set the internal oscillator to run at 125kHz
-    OPTION_REG = 0x00;  //Enable the internal weak pull-ups on PORTB and set the Timer0 module to run with no pre-scaler from the internal oscillator
-    TMR1H = 0x3F;       //Set the highest byte of the Timer1 module counter
+    OPTION_REG = 0x5F;  //Enable the internal weak pull-ups on PORTB and set the Timer0 module to run with no pre-scaler from the internal oscillator
+    TMR1H = 0xFF;       //Set the highest byte of the Timer1 module counter
     TMR1L = 0xFF;       //Set the lowest byte of the Timer1 module counter
-    T1CON = 0x8D;       //Enable the Timer1 module and set it to use the internal low frequency oscillator
+    T1CON = 0x85;       //Enable the Timer1 module and set it to use the internal low frequency oscillator
     
     //Interrupt Related Registers
-    INTCON = 0xE0;  //Enable interrupts, along with peripheral, Timer0 module overflow, and PORTB change interrupts
+    INTCON = 0xE0;  //Enable interrupts, along with peripheral and Timer0 module overflow
     PIE1 = 0x01;    //Enable the Timer1 module overflow interrupt
     
     //IO Port Related Registers
@@ -98,10 +98,11 @@ void setup() {
     WPUB = 0x30;    //Enable the internal weak pull-ups on PORTB4 and PORTB5
     LATB = 0x00;    //Set all of PORTB to logic LOW
     
+    
     //Initialize Variables
-    timeSeconds = 0;
-    timeMinutes = 0;
-    timeHours = 0;
+    timeSeconds = 0;  //Clear the variable used for tracking seconds so it starts at the beginning
+    timeMinutes = 0;  //Clear the variable used for tracking minutes so it starts at the beginning
+    timeHours = 0;    //Clear the variable used for tracking hours so it starts at the beginning
     
     setTimer = CLOCK_SET_SPEED - 1;  //Set the counter used to add a delay between increments of a time frame when setting the clocks time to the end of the cycle to start immediately
 }
@@ -183,8 +184,8 @@ void interrupt onInterrupt() {
         TMR1IF = 0x00;  //Clear the Timer1 module overflow interrupt flag to prevent false interrupt
         
         //Set the Timer1 module to interrupt after half a second has passed in real time
-        TMR1H = 0x3F;   //Reset the highest byte of the Timer1 module counter
-        TMR1L = 0xFF;   //Reset the lowest byte of the Timer1 module counter
+        TMR1H = 0xBF;   //Reset the highest byte of the Timer1 module counter
+        TMR1L = 0xFD;   //Reset the lowest byte of the Timer1 module counter
         
         //Update the real time clock and update the display to display the current time
         updateClock();    //Update the current time on the clock to be accurate with world time
@@ -197,5 +198,52 @@ void interrupt onInterrupt() {
         
         //Multiplex the next digit of the display
         multiplexDisplay();  //Multiplex the next digit of the display
+        
+        //Proceed only if the minutes button is being pressed
+        if (!RB4 && RB5) {
+            setTimer++;  //Increment the timer used to delay each increment of the minutes to make user interface much easier
+            
+            //Check to see if the timer has overflowed
+            if (setTimer == CLOCK_SET_SPEED) {
+                setTimer = 0;  //Clear the timer variable and start from the beginning
+                
+                timeMinutes++;  //Increment the minutes counter by 1 to indicate that a minute has passed
+                //Check to see if an hour has passed
+                if (timeMinutes == 60) {
+                    timeMinutes = 0;  //Reset the minutes counter back to 0 and begin counting for an hour again
+            
+                    timeHours++;  //Increment the hours counter by 1 to indicate that an hour has passed
+                    //Check to see if a day has passed
+                    if (timeHours == 24) {
+                        timeHours = 0;  //Reset the hours counter back to 0 and begin counting for a day again
+                    }
+                }
+                
+                updateDisplay();  //Update the display digits to represent the current time being tracked by the clock
+            }
+        }
+        
+        //Proceed only if the hour button is being pressed
+        if (RB4 && !RB5) {
+            setTimer++;  //Increment the timer used to delay each increment of the hours to make user interface much easier
+            
+            //Check to see if the timer has overflowed
+            if (setTimer == CLOCK_SET_SPEED) {
+                setTimer = 0;  //Clear the timer variable and start from the beginning
+                
+                timeHours++;  //Increment the hours counter by 1 to indicate that an hour has passed
+                //Check to see if a day has passed
+                if (timeHours == 24) {
+                    timeHours = 0;  //Reset the hours counter back to 0 and begin counting for a day again
+                }
+                
+                updateDisplay();  //Update the display digits to represent the current time being tracked by the clock
+            }
+        }
+        
+        //Reset the timer used to delay each increment of the time to make user interface easier if none of the buttons are being pressed
+        if (RB4 && RB5) {
+            setTimer = CLOCK_SET_SPEED - 1;  //Set the counter used to add a delay between increments of a time frame when setting the clocks time to the end of the cycle to start immediately
+        }
     }
 }

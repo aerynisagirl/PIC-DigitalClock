@@ -6127,10 +6127,10 @@ unsigned int setTimer = 0;
 void setup() {
 
 OSCCON = 0x68;
-OPTION_REG = 0x00;
-TMR1H = 0x3F;
+OPTION_REG = 0x5F;
+TMR1H = 0xFF;
 TMR1L = 0xFF;
-T1CON = 0x8D;
+T1CON = 0x85;
 
 
 INTCON = 0xE0;
@@ -6148,14 +6148,15 @@ WPUB = 0x30;
 LATB = 0x00;
 
 
+
 timeSeconds = 0;
 timeMinutes = 0;
 timeHours = 0;
 
-setTimer = 150 - 1;
+setTimer = 500 - 1;
 }
 
-# 114
+# 115
 void main() {
 setup();
 
@@ -6217,15 +6218,15 @@ displayValue[3] = DISPLAY_MAPPING[timeMinutes % 100 / 10];
 displayValue[4] = DISPLAY_MAPPING[timeMinutes % 10];
 }
 
-# 180
+# 181
 void interrupt onInterrupt() {
 
 if (TMR1IF) {
 TMR1IF = 0x00;
 
 
-TMR1H = 0x3F;
-TMR1L = 0xFF;
+TMR1H = 0xBF;
+TMR1L = 0xFD;
 
 
 updateClock();
@@ -6238,5 +6239,52 @@ TMR0IF = 0x00;
 
 
 multiplexDisplay();
+
+
+if (!RB4 && RB5) {
+setTimer++;
+
+
+if (setTimer == 500) {
+setTimer = 0;
+
+timeMinutes++;
+
+if (timeMinutes == 60) {
+timeMinutes = 0;
+
+timeHours++;
+
+if (timeHours == 24) {
+timeHours = 0;
+}
+}
+
+updateDisplay();
+}
+}
+
+
+if (RB4 && !RB5) {
+setTimer++;
+
+
+if (setTimer == 500) {
+setTimer = 0;
+
+timeHours++;
+
+if (timeHours == 24) {
+timeHours = 0;
+}
+
+updateDisplay();
+}
+}
+
+
+if (RB4 && RB5) {
+setTimer = 500 - 1;
+}
 }
 }
