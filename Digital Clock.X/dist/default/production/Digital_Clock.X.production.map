@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\Digital_Clock.X.production.sym \
   --cmf=dist/default/production\Digital_Clock.X.production.cmf -z -Q16F1783 \
-  -oC:\Users\MACFRE~1\AppData\Local\Temp\s3ug.2 \
+  -oC:\Users\MACFRE~1\AppData\Local\Temp\s950.2 \
   -Mdist/default/production/Digital_Clock.X.production.map -E1 -ver=XC8 \
   -ASTACK=0201Dh-021efh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
@@ -30,7 +30,7 @@ Linker command line:
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\MACFRE~1\AppData\Local\Temp\s3ug.obj \
+  C:\Users\MACFRE~1\AppData\Local\Temp\s950.obj \
   dist/default/production\Digital_Clock.X.production.obj 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Machine type is 16F1783
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\MACFRE~1\AppData\Local\Temp\s3ug.obj
+C:\Users\MACFRE~1\AppData\Local\Temp\s950.obj
                 end_init                             6A       6A        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
@@ -639,6 +639,282 @@ wtemp3                     (abs)        00084
 wtemp4                     (abs)        00086
 wtemp5                     (abs)        00088
 wtemp6                     (abs)        0007F
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 115 in file "Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+      Params:         0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels required when called:    4
+ This function calls:
+		_setup
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _setup *****************
+ Defined at:
+		line 78 in file "Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+      Params:         0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _onInterrupt *****************
+ Defined at:
+		line 181 in file "Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+      Params:         0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_multiplexDisplay
+		_updateClock
+		_updateDisplay
+ This function is called by:
+		Interrupt level 1
+ This function uses a non-reentrant model
+
+
+ *************** function _updateDisplay *****************
+ Defined at:
+		line 161 in file "Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+      Params:         0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0
+      Temps:          0       3       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		___awdiv
+		___awmod
+ This function is called by:
+		_onInterrupt
+ This function uses a non-reentrant model
+
+
+ *************** function ___awmod *****************
+ Defined at:
+		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c"
+ Parameters:    Size  Location     Type
+  divisor         2    0[COMMON] int 
+  dividend        2    2[COMMON] int 
+ Auto vars:     Size  Location     Type
+  sign            1    6[COMMON] unsigned char 
+  counter         1    5[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  2    0[COMMON] int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+      Params:         4       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0
+      Totals:         7       0       0       0       0       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_updateDisplay
+ This function uses a non-reentrant model
+
+
+ *************** function ___awdiv *****************
+ Defined at:
+		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c"
+ Parameters:    Size  Location     Type
+  divisor         2    7[COMMON] int 
+  dividend        2    9[COMMON] int 
+ Auto vars:     Size  Location     Type
+  quotient        2    2[BANK0 ] int 
+  sign            1    1[BANK0 ] unsigned char 
+  counter         1    0[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2    7[COMMON] int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+      Params:         4       0       0       0       0       0       0       0
+      Locals:         0       4       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0
+      Totals:         5       4       0       0       0       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_updateDisplay
+ This function uses a non-reentrant model
+
+
+ *************** function _updateClock *****************
+ Defined at:
+		line 125 in file "Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+      Params:         0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_onInterrupt
+ This function uses a non-reentrant model
+
+
+ *************** function _multiplexDisplay *****************
+ Defined at:
+		line 146 in file "Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+      Params:         0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_onInterrupt
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
+		___awdiv       		CODE           	00FF	0000	83
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c estimated size: 83
+
+Main.c
+		_updateClock   		CODE           	01E4	0000	30
+		_main          		CODE           	0212	0000	5
+		_onInterrupt   		CODE           	0004	0000	103
+		_multiplexDisplay		CODE           	01C1	0000	36
+		_setup         		CODE           	0196	0000	44
+		_updateDisplay 		CODE           	0084	0000	124
+
+Main.c estimated size: 342
+
+shared
+		__initialization		CODE           	006C	0000	21
+
+shared estimated size: 21
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
+		___awmod       		CODE           	0151	0000	70
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c estimated size: 70
+
 
 
 FUNCTION INFORMATION:
