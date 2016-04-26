@@ -15,28 +15,34 @@
 [v _eecpymem eecpymem `(v  1 e 0 0 ]
 "24
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
-"78 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
+"75 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 [v _setup setup `(v  1 e 0 0 ]
-"115
+"113
 [v _main main `(v  1 e 0 0 ]
-"125
+"123
 [v _updateClock updateClock `(v  1 e 0 0 ]
-"146
+"144
 [v _multiplexDisplay multiplexDisplay `(v  1 e 0 0 ]
-"161
+"159
 [v _updateDisplay updateDisplay `(v  1 e 0 0 ]
-"181
+"179
 [v _onInterrupt onInterrupt `II(v  1 e 0 0 ]
 "337 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1783.h
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
 "414
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"641
+[v _PIR1 PIR1 `VEuc  1 e 1 @17 ]
 "821
 [v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
 "840
 [v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
 "859
 [v _T1CON T1CON `VEuc  1 e 1 @24 ]
+"1018
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+"1037
+[v _T2CON T2CON `VEuc  1 e 1 @28 ]
 "1107
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1176
@@ -67,6 +73,8 @@
 [v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
 "12100
 [v _TMR1IF TMR1IF `VEb  1 e 0 @136 ]
+"12106
+[v _TMR2IF TMR2IF `VEb  1 e 0 @137 ]
 "43 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 [v _DISPLAY_MAPPING DISPLAY_MAPPING `[11]uc  1 e 11 0 ]
 "62
@@ -79,27 +87,25 @@
 [v _displayDigit displayDigit `uc  1 e 1 0 ]
 "68
 [v _displayValue displayValue `[5]uc  1 e 5 0 ]
-"71
-[v _setTimer setTimer `ui  1 e 2 0 ]
-"115
+"113
 [v _main main `(v  1 e 0 0 ]
 {
-"122
+"120
 } 0
-"78
+"75
 [v _setup setup `(v  1 e 0 0 ]
 {
-"108
+"106
 } 0
-"181
+"179
 [v _onInterrupt onInterrupt `II(v  1 e 0 0 ]
 {
-"249
+"229
 } 0
-"161
+"159
 [v _updateDisplay updateDisplay `(v  1 e 0 0 ]
 {
-"174
+"172
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -125,13 +131,13 @@
 [v ___awdiv@dividend dividend `i  1 p 2 9 ]
 "42
 } 0
-"125 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
+"123 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 [v _updateClock updateClock `(v  1 e 0 0 ]
 {
-"143
+"141
 } 0
-"146
+"144
 [v _multiplexDisplay multiplexDisplay `(v  1 e 0 0 ]
 {
-"158
+"156
 } 0

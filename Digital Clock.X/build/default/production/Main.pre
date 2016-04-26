@@ -6120,10 +6120,7 @@ unsigned char timeHours = 0;
 unsigned char displayDigit = 0;
 unsigned char displayValue[] = {0x00, 0x00, 0x00, 0x00, 0x00};
 
-
-unsigned int setTimer = 0;
-
-# 78
+# 75
 void setup() {
 
 OSCCON = 0x68;
@@ -6131,10 +6128,13 @@ OPTION_REG = 0x5F;
 TMR1H = 0xFF;
 TMR1L = 0xFF;
 T1CON = 0x85;
+T2CON = 0x07;
+PR2 = 0xFF;;
 
 
 INTCON = 0xE0;
-PIE1 = 0x01;
+PIR1 = 0x00;
+PIE1 = 0x03;
 
 
 TRISA = 0x00;
@@ -6152,11 +6152,9 @@ LATB = 0x00;
 timeSeconds = 0;
 timeMinutes = 0;
 timeHours = 0;
-
-setTimer = 500 - 1;
 }
 
-# 115
+# 113
 void main() {
 setup();
 
@@ -6212,13 +6210,13 @@ displayValue[0] = 0x00;
 }
 
 
-displayValue[1] = DISPLAY_MAPPING[timeHours % 100 / 10];
-displayValue[2] = DISPLAY_MAPPING[timeHours % 10];
+displayValue[1] = DISPLAY_MAPPING[timeHours % 10];
+displayValue[2] = DISPLAY_MAPPING[timeHours % 100 / 10];
 displayValue[3] = DISPLAY_MAPPING[timeMinutes % 100 / 10];
 displayValue[4] = DISPLAY_MAPPING[timeMinutes % 10];
 }
 
-# 181
+# 179
 void interrupt onInterrupt() {
 
 if (TMR1IF) {
@@ -6239,52 +6237,34 @@ TMR0IF = 0x00;
 
 
 multiplexDisplay();
+}
+
+
+if (TMR2IF) {
+TMR2IF = 0x00;
 
 
 if (!RB4 && RB5) {
-setTimer++;
-
-
-if (setTimer == 500) {
-setTimer = 0;
-
 timeMinutes++;
+
 
 if (timeMinutes == 60) {
 timeMinutes = 0;
-
-timeHours++;
-
-if (timeHours == 24) {
-timeHours = 0;
-}
 }
 
 updateDisplay();
-}
 }
 
 
 if (RB4 && !RB5) {
-setTimer++;
+timeMinutes++;
 
 
-if (setTimer == 500) {
-setTimer = 0;
-
-timeHours++;
-
-if (timeHours == 24) {
+if (timeMinutes == 24) {
 timeHours = 0;
 }
 
 updateDisplay();
-}
-}
-
-
-if (RB4 && RB5) {
-setTimer = 500 - 1;
 }
 }
 }
