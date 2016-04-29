@@ -6128,8 +6128,8 @@ OPTION_REG = 0x5F;
 TMR1H = 0xFF;
 TMR1L = 0xFF;
 T1CON = 0x85;
-T2CON = 0x07;
-PR2 = 0xFF;;
+T2CON = 0x7F;
+PR2 = 0x7F;;
 
 
 INTCON = 0xE0;
@@ -6257,10 +6257,10 @@ updateDisplay();
 
 
 if (RB4 && !RB5) {
-timeMinutes++;
+timeHours++;
 
 
-if (timeMinutes == 24) {
+if (timeHours == 24) {
 timeHours = 0;
 }
 

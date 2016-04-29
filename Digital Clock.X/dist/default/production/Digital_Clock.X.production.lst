@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Tue Apr 26 13:19:59 2016
+                                                                                               Fri Apr 29 19:04:14 2016
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	16F1783
@@ -564,12 +564,12 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    558  0177  3085               	movlw	133
    559  0178  0098               	movwf	24	;volatile
    560                           
-   561                           ;Main.c: 82: T2CON = 0x07;
-   562  0179  3007               	movlw	7
+   561                           ;Main.c: 82: T2CON = 0x7F;
+   562  0179  307F               	movlw	127
    563  017A  009C               	movwf	28	;volatile
    564                           
-   565                           ;Main.c: 83: PR2 = 0xFF;;
-   566  017B  30FF               	movlw	255
+   565                           ;Main.c: 83: PR2 = 0x7F;;
+   566  017B  307F               	movlw	127
    567  017C  009B               	movwf	27	;volatile
    568                           
    569                           ;Main.c: 86: INTCON = 0xE0;
@@ -747,15 +747,15 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    741  0030  1A8D               	btfsc	13,5	;volatile
    742  0031  283C               	goto	i1l95
    743                           
-   744                           ;Main.c: 219: timeMinutes++;
+   744                           ;Main.c: 219: timeHours++;
    745  0032  3001               	movlw	1
    746  0033  00FC               	movwf	??_onInterrupt
    747  0034  087C               	movf	??_onInterrupt,w
-   748  0035  07B1               	addwf	_timeMinutes,f
+   748  0035  07B0               	addwf	_timeHours,f
    749                           
-   750                           ;Main.c: 222: if (timeMinutes == 24) {
+   750                           ;Main.c: 222: if (timeHours == 24) {
    751  0036  3018               	movlw	24
-   752  0037  0631               	xorwf	_timeMinutes,w
+   752  0037  0630               	xorwf	_timeHours,w
    753  0038  1903               	btfsc	3,2
    754                           
    755                           ;Main.c: 223: timeHours = 0;
@@ -1636,7 +1636,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Tue Apr 26 13:19:59 2016
+Symbol Table                                                                                   Fri Apr 29 19:04:14 2016
 
               __CFG_CP$OFF 0000                         l66 01ED               ___awdiv@sign 0035  
                       _RB4 006C                        _RB5 006D                        _PR2 001B  

@@ -37,7 +37,7 @@
  *******************/
 
 //User Interface Configuration
-#define TIME_SET_DELAY 0xFF;  //The lower the value, the faster the numbers will increment while using the buttons to set the time
+#define TIME_SET_DELAY 0x7F;  //The lower the value, the faster the numbers will increment while using the buttons to set the time
 
 //Display Mapping
 unsigned char DISPLAY_MAPPING[] = {
@@ -79,7 +79,7 @@ void setup() {
     TMR1H = 0xFF;          //Set the highest byte of the Timer1 module counter
     TMR1L = 0xFF;          //Set the lowest byte of the Timer1 module counter
     T1CON = 0x85;          //Enable the Timer1 module and set it to use the internal low frequency oscillator
-    T2CON = 0x07;          //Enable the Timer2 module and set the prescaler to count on every 64th clock cycle
+    T2CON = 0x7F;          //Enable the Timer2 module and set the prescaler to count on every 64th clock cycle
     PR2 = TIME_SET_DELAY;  //Set the period register of Timer2 used to determine when an interrupt should occur to the value of the constant TIME_SET_DELAY 
     
     //Interrupt Related Registers
@@ -216,10 +216,10 @@ void interrupt onInterrupt() {
         
         //Check to see if the hours button is being held down
         if (RB4 && !RB5) {
-            timeMinutes++;  //Increment the hours counter by 1
+            timeHours++;  //Increment the hours counter by 1
             
             //Check to see if the hours value is over a day
-            if (timeMinutes == 24) {
+            if (timeHours == 24) {
                 timeHours = 0;  //Reset the hours counter back to 0
             }
             
