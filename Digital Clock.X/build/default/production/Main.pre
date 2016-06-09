@@ -6123,11 +6123,11 @@ unsigned char displayValue[] = {0x00, 0x00, 0x00, 0x00, 0x00};
 # 75
 void setup() {
 
-OSCCON = 0x68;
+OSCCON = 0x70;
 OPTION_REG = 0x5F;
 TMR1H = 0xFF;
 TMR1L = 0xFF;
-T1CON = 0x85;
+T1CON = 0x8D;
 T2CON = 0x7F;
 PR2 = 0x7F;;
 
@@ -6145,8 +6145,6 @@ PORTA = 0x00;
 TRISB = 0xF0;
 ANSELB = 0x00;
 WPUB = 0x30;
-LATB = 0x00;
-
 
 
 timeSeconds = 0;
@@ -6154,7 +6152,7 @@ timeMinutes = 0;
 timeHours = 0;
 }
 
-# 113
+# 111
 void main() {
 setup();
 
@@ -6216,7 +6214,7 @@ displayValue[3] = DISPLAY_MAPPING[timeMinutes % 100 / 10];
 displayValue[4] = DISPLAY_MAPPING[timeMinutes % 10];
 }
 
-# 179
+# 177
 void interrupt onInterrupt() {
 
 if (TMR1IF) {

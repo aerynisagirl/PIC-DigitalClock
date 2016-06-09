@@ -74,11 +74,11 @@ unsigned char displayValue[] = {0x00, 0x00, 0x00, 0x00, 0x00};  //Holds the valu
 //Setup Function, configures MCU modules, initializes variables, and set IO registers
 void setup() {
     //Timing Related Registers
-    OSCCON = 0x68;         //Set the internal oscillator to run at 125kHz
+    OSCCON = 0x70;         //Set the internal oscillator to run at 125kHz
     OPTION_REG = 0x5F;     //Enable the internal weak pull-ups on PORTB and set the Timer0 module to run with no pre-scaler from the internal oscillator
     TMR1H = 0xFF;          //Set the highest byte of the Timer1 module counter
     TMR1L = 0xFF;          //Set the lowest byte of the Timer1 module counter
-    T1CON = 0x85;          //Enable the Timer1 module and set it to use the internal low frequency oscillator
+    T1CON = 0x8D;          //Enable the Timer1 module and set it to use the internal low frequency oscillator
     T2CON = 0x7F;          //Enable the Timer2 module and set the prescaler to count on every 64th clock cycle
     PR2 = TIME_SET_DELAY;  //Set the period register of Timer2 used to determine when an interrupt should occur to the value of the constant TIME_SET_DELAY 
     
@@ -96,8 +96,6 @@ void setup() {
     TRISB = 0xF0;   //Set PORTB0 to PORTB3 to outputs and leave the rest as inputs
     ANSELB = 0x00;  //Set all of PORTB to digital IO
     WPUB = 0x30;    //Enable the internal weak pull-ups on PORTB4 and PORTB5
-    LATB = 0x00;    //Set all of PORTB to logic LOW
-    
     
     //Initialize Variables
     timeSeconds = 0;  //Clear the variable used for tracking seconds so it starts at the beginning

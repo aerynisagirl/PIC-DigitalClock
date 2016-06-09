@@ -17,15 +17,15 @@
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
 "75 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 [v _setup setup `(v  1 e 0 0 ]
-"113
+"111
 [v _main main `(v  1 e 0 0 ]
-"123
+"121
 [v _updateClock updateClock `(v  1 e 0 0 ]
-"144
+"142
 [v _multiplexDisplay multiplexDisplay `(v  1 e 0 0 ]
-"159
+"157
 [v _updateDisplay updateDisplay `(v  1 e 0 0 ]
-"179
+"177
 [v _onInterrupt onInterrupt `II(v  1 e 0 0 ]
 "337 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1783.h
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
@@ -87,25 +87,25 @@
 [v _displayDigit displayDigit `uc  1 e 1 0 ]
 "68
 [v _displayValue displayValue `[5]uc  1 e 5 0 ]
-"113
+"111
 [v _main main `(v  1 e 0 0 ]
 {
-"120
+"118
 } 0
 "75
 [v _setup setup `(v  1 e 0 0 ]
 {
-"106
+"104
 } 0
-"179
+"177
 [v _onInterrupt onInterrupt `II(v  1 e 0 0 ]
 {
-"229
+"227
 } 0
-"159
+"157
 [v _updateDisplay updateDisplay `(v  1 e 0 0 ]
 {
-"172
+"170
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -131,13 +131,13 @@
 [v ___awdiv@dividend dividend `i  1 p 2 9 ]
 "42
 } 0
-"123 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
+"121 C:\Users\Mac Freak\Documents\GitHub\PIC-DigitalClock\Digital Clock.X\Main.c
 [v _updateClock updateClock `(v  1 e 0 0 ]
 {
-"141
+"139
 } 0
-"144
+"142
 [v _multiplexDisplay multiplexDisplay `(v  1 e 0 0 ]
 {
-"156
+"154
 } 0
