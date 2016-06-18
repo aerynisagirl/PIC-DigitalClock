@@ -6140,11 +6140,12 @@ PIE1 = 0x03;
 TRISA = 0x00;
 ANSELA = 0x00;
 WPUA = 0x00;
-PORTA = 0x00;
+LATA = 0x00;
 
 TRISB = 0xF0;
 ANSELB = 0x00;
 WPUB = 0x30;
+LATB = 0x00;
 
 
 timeSeconds = 0;
@@ -6152,7 +6153,7 @@ timeMinutes = 0;
 timeHours = 0;
 }
 
-# 111
+# 112
 void main() {
 setup();
 
@@ -6208,13 +6209,13 @@ displayValue[0] = 0x00;
 }
 
 
-displayValue[1] = DISPLAY_MAPPING[timeHours % 10];
-displayValue[2] = DISPLAY_MAPPING[timeHours % 100 / 10];
+displayValue[1] = DISPLAY_MAPPING[timeHours % 100 / 10];
+displayValue[2] = DISPLAY_MAPPING[timeHours % 10];
 displayValue[3] = DISPLAY_MAPPING[timeMinutes % 100 / 10];
 displayValue[4] = DISPLAY_MAPPING[timeMinutes % 10];
 }
 
-# 177
+# 178
 void interrupt onInterrupt() {
 
 if (TMR1IF) {

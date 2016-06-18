@@ -2,8 +2,8 @@
  *  Digital Clock - A simple digital clock project to help me learn PIC  *
  *  Created by mikemadealarms on January 6, 2016 at 4:38 PM              *
  * --------------------------------------------------------------------- *
- *  Last modified by mikemadealarms on April 26, at 1:19 PM              *
- *  Last modification made was: Update the user interface and clean up   *
+ *  Last modified by mikemadealarms on June 18, at 10:14 AM              *
+ *  Last modification made was: Finalize and release first version       *
  *************************************************************************/
 
 #include <xc.h>
@@ -78,7 +78,7 @@ void setup() {
     OPTION_REG = 0x5F;     //Enable the internal weak pull-ups on PORTB and set the Timer0 module to run with no pre-scaler from the internal oscillator
     TMR1H = 0xFF;          //Set the highest byte of the Timer1 module counter
     TMR1L = 0xFF;          //Set the lowest byte of the Timer1 module counter
-    T1CON = 0x8D;          //Enable the Timer1 module and set it to use the internal low frequency oscillator
+    T1CON = 0x8D;          //Enable the Timer1 module and set it to use an external low frequency crystal oscillator
     T2CON = 0x7F;          //Enable the Timer2 module and set the prescaler to count on every 64th clock cycle
     PR2 = TIME_SET_DELAY;  //Set the period register of Timer2 used to determine when an interrupt should occur to the value of the constant TIME_SET_DELAY 
     
@@ -91,11 +91,12 @@ void setup() {
     TRISA = 0x00;   //Set all of PORTA to be outputs
     ANSELA = 0x00;  //Set all of PORTA to digital IO
     WPUA = 0x00;    //Disable all the internal weak pull-up resistors on PORTA
-    PORTA = 0x00;   //Set all of PORTA to logic LOW
+    LATA = 0x00;    //Set all of PORTA to logic LOW
     
     TRISB = 0xF0;   //Set PORTB0 to PORTB3 to outputs and leave the rest as inputs
     ANSELB = 0x00;  //Set all of PORTB to digital IO
     WPUB = 0x30;    //Enable the internal weak pull-ups on PORTB4 and PORTB5
+    LATB = 0x00;    //Set all of PORTB to logic LOW
     
     //Initialize Variables
     timeSeconds = 0;  //Clear the variable used for tracking seconds so it starts at the beginning
@@ -163,8 +164,8 @@ void updateDisplay() {
     }
     
     //Set the values of the digits on the display to be the current time
-    displayValue[1] = DISPLAY_MAPPING[timeHours % 10];          //Set the first digit of the display to display the tens place value of the current hour
-    displayValue[2] = DISPLAY_MAPPING[timeHours % 100 / 10];    //Set the second digit of the display to display the ones place value of the current hour
+    displayValue[1] = DISPLAY_MAPPING[timeHours % 100 / 10];    //Set the first digit of the display to display the tens place value of the current hour
+    displayValue[2] = DISPLAY_MAPPING[timeHours % 10];          //Set the second digit of the display to display the ones place value of the current hour
     displayValue[3] = DISPLAY_MAPPING[timeMinutes % 100 / 10];  //Set the third digit of the display to display the tens place value of the current minute
     displayValue[4] = DISPLAY_MAPPING[timeMinutes % 10];        //Set the fourth digit of the display to display the ones place value of the current minute
 }
