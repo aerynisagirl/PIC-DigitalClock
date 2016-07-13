@@ -6097,18 +6097,18 @@ extern __bit __timeout;
 #pragma config LVP = OFF
 
 # 43
-unsigned char DISPLAY_MAPPING[] = {
-0xB7,
-0x24,
-0x73,
-0x76,
-0xE4,
-0xD6,
-0xD7,
+const unsigned char DISPLAY_MAPPING[] = {
+0xFD,
+0x30,
+0x5E,
+0x3E,
+0x33,
+0x2F,
+0x6F,
 0x34,
-0xF7,
-0xF6,
-0x08
+0x7F,
+0x3F,
+0x80
 };
 
 # 62
@@ -6129,7 +6129,7 @@ TMR1H = 0xFF;
 TMR1L = 0xFF;
 T1CON = 0x8D;
 T2CON = 0x7F;
-PR2 = 0x7F;;
+PR2 = 0xBF;;
 
 
 INTCON = 0xE0;
@@ -6142,9 +6142,9 @@ ANSELA = 0x00;
 WPUA = 0x00;
 LATA = 0x00;
 
-TRISB = 0xF0;
+TRISB = 0xE0;
 ANSELB = 0x00;
-WPUB = 0x30;
+WPUB = 0xE0;
 LATB = 0x00;
 
 
@@ -6189,33 +6189,36 @@ void multiplexDisplay() {
 displayDigit++;
 
 
-if (displayDigit > 4) {
+if (displayDigit > 5) {
 displayDigit = 0;
-LATB = 0x00;
-} else {
-LATB = 1 << displayDigit - 1;
 }
 
-LATA = ~displayValue[displayDigit];
+
+LATA = 0x00;
+LATB = 0x00;
+
+
+LATA = displayValue[displayDigit];
+LATB = 1 << displayDigit;
 }
 
 
 void updateDisplay() {
 
 if (timeSeconds % 2) {
-displayValue[0] = DISPLAY_MAPPING[10];
+displayValue[4] = DISPLAY_MAPPING[10];
 } else {
-displayValue[0] = 0x00;
+displayValue[4] = 0x00;
 }
 
 
-displayValue[1] = DISPLAY_MAPPING[timeHours % 100 / 10];
+displayValue[3] = DISPLAY_MAPPING[timeHours % 100 / 10];
 displayValue[2] = DISPLAY_MAPPING[timeHours % 10];
-displayValue[3] = DISPLAY_MAPPING[timeMinutes % 100 / 10];
-displayValue[4] = DISPLAY_MAPPING[timeMinutes % 10];
+displayValue[1] = DISPLAY_MAPPING[timeMinutes % 100 / 10];
+displayValue[0] = DISPLAY_MAPPING[timeMinutes % 10];
 }
 
-# 178
+# 181
 void interrupt onInterrupt() {
 
 if (TMR1IF) {
@@ -6243,7 +6246,7 @@ if (TMR2IF) {
 TMR2IF = 0x00;
 
 
-if (!RB4 && RB5) {
+if (RB6 && !RB7) {
 timeMinutes++;
 
 
@@ -6255,7 +6258,7 @@ updateDisplay();
 }
 
 
-if (RB4 && !RB5) {
+if (!RB6 && RB7) {
 timeHours++;
 
 
