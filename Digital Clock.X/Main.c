@@ -2,8 +2,8 @@
  *  Digital Clock - A simple digital clock project to help me learn PIC  *
  *  Created by mikemadealarms on January 6, 2016 at 4:38 PM              *
  * --------------------------------------------------------------------- *
- *  Last modified by mikemadealarms on June 13, 2016 at 2:31 PM          *
- *  Last modification made was: Minor cleaning and test of 12 Hour       *
+ *  Last modified by mikemadealarms on July 25, 2016 at 5:34 PM          *
+ *  Last modification made was: Fixed a few typos                        *
  *************************************************************************/
 
 #include <xc.h>
@@ -17,16 +17,16 @@
 #pragma config WDTE = OFF      //Disable the Watchdog Timer as it is not needed
 #pragma config PWRTE = OFF     //Disable the Power-up Timer as it is not needed
 #pragma config MCLRE = ON      //Enable the use of the MCLRE function on Pin 1 of the MCU
-#pragma config CP = OFF        //Disable Code Protection as it is completely unecessary
-#pragma config CPD = OFF       //Disable Data Code Protection as it is completely unecessary
+#pragma config CP = OFF        //Disable Code Protection as it is completely unnecessary
+#pragma config CPD = OFF       //Disable Data Code Protection as it is completely unnecessary
 #pragma config BOREN = ON      //Enable the Brown-out Reset function
 #pragma config CLKOUTEN = OFF  //Disable the CLKOUT feature that is linked to Pin 10 of the MCU
 #pragma config IESO = ON       //Allow the use of Internal/External Clock Switch Over feature
 #pragma config FCMEN = ON      //Enable the Fail-Safe Clock Monitor as this is a time critical application
 
 //CONFIG2 Register
-#pragma config WRT = OFF     //Disable the Flash-memory Re-Write Protection feature as it is completely unecessary
-#pragma config VCAPEN = OFF  //Disable the capacitor used by the internal voltage regulator as it is un necessary
+#pragma config WRT = OFF     //Disable the Flash-memory Re-Write Protection feature as it is completely unnecessary
+#pragma config VCAPEN = OFF  //Disable the capacitor used by the internal voltage regulator as it is unnecessary
 #pragma config PLLEN = OFF   //Disable the PLL used for the internal oscillator as a high speed clock is not needed
 #pragma config STVREN = ON   //Enable the Stack Overflow/Underflow Reset function to ensure the MCU doesn't jam up
 #pragma config BORV = HI     //Set the Brown-Out Reset to occur when the high tripping point is present
@@ -64,7 +64,7 @@ unsigned char timeMinutes = 0x00;  //Tracks the current minute of the hour and r
 unsigned char timeHours = 0x00;    //Tracks the current hour of the day and then resets when a day has passed
 
 //Display Multiplexing Variables
-unsigned char displayDigit = 0;                                 //Represents the current digit in the display that is being multiplexed
+unsigned char displayDigit = 0x00;                              //Represents the current digit in the display that is being multiplexed
 unsigned char displayValue[] = {0x00, 0x00, 0x00, 0x00, 0x00};  //Holds the values that get written to the IO ports controlling the segment for each display that represent a number
 
 /***********
@@ -170,10 +170,10 @@ void updateDisplay() {
     }
     
     //Set the values of the digits on the display to be the current time
-    displayValue[0x03] = DISPLAY_MAPPING[timeHours % 0x64 / 0x0A / 2];    //Set the first digit of the display to display the tens place value of the current hour
-    displayValue[0x02] = DISPLAY_MAPPING[timeHours % 0x0A / 2];           //Set the second digit of the display to display the ones place value of the current hour
-    displayValue[0x01] = DISPLAY_MAPPING[timeMinutes % 0x64 / 0x0A / 2];  //Set the third digit of the display to display the tens place value of the current minute
-    displayValue[0x00] = DISPLAY_MAPPING[timeMinutes % 0x0A / 2];         //Set the fourth digit of the display to display the ones place value of the current minute
+    displayValue[0x03] = DISPLAY_MAPPING[timeHours % 0x64 / 0x0A];    //Set the first digit of the display to display the tens place value of the current hour
+    displayValue[0x02] = DISPLAY_MAPPING[timeHours % 0x0A];           //Set the second digit of the display to display the ones place value of the current hour
+    displayValue[0x01] = DISPLAY_MAPPING[timeMinutes % 0x64 / 0x0A];  //Set the third digit of the display to display the tens place value of the current minute
+    displayValue[0x00] = DISPLAY_MAPPING[timeMinutes % 0x0A];         //Set the fourth digit of the display to display the ones place value of the current minute
 }
 
 /****************
@@ -181,7 +181,7 @@ void updateDisplay() {
  ****************/
 
 //Interrupt Function, called upon an interrupt of a module or PORTB interrupt within the MCU
-void interrupt onInterrupt() {
+void interrupt interruptRoutine() {
     //Proceed only if the Timer1 module overflow flag has been thrown
     if (TMR1IF) {
         TMR1IF = 0x00;  //Clear the Timer1 module overflow interrupt flag to prevent false interrupt
