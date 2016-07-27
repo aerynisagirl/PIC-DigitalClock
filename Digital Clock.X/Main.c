@@ -170,17 +170,17 @@ void updateDisplay() {
     }
     
     //Set the values of the digits on the display to be the current time
-    displayValue[0x03] = DISPLAY_MAPPING[timeHours % 0x64 / 0x0A / 2];    //Set the first digit of the display to display the tens place value of the current hour
-    displayValue[0x02] = DISPLAY_MAPPING[timeHours % 0x0A / 2];           //Set the second digit of the display to display the ones place value of the current hour
-    displayValue[0x01] = DISPLAY_MAPPING[timeMinutes % 0x64 / 0x0A / 2];  //Set the third digit of the display to display the tens place value of the current minute
-    displayValue[0x00] = DISPLAY_MAPPING[timeMinutes % 0x0A / 2];         //Set the fourth digit of the display to display the ones place value of the current minute
+    displayValue[0x03] = DISPLAY_MAPPING[timeHours % 0x64 / 0x0A];    //Set the first digit of the display to display the tens place value of the current hour
+    displayValue[0x02] = DISPLAY_MAPPING[timeHours % 0x0A];           //Set the second digit of the display to display the ones place value of the current hour
+    displayValue[0x01] = DISPLAY_MAPPING[timeMinutes % 0x64 / 0x0A];  //Set the third digit of the display to display the tens place value of the current minute
+    displayValue[0x00] = DISPLAY_MAPPING[timeMinutes % 0x0A];         //Set the fourth digit of the display to display the ones place value of the current minute
 }
 
 /****************
  *  Interrupts  *
  ****************/
 
-//Interrupt Function, called upon an interrupt of a module or PORTB interrupt within the MCU
+//Interrupt Function, called upon an interrupt of a module on the PIC MCU
 void interrupt onInterrupt() {
     //Proceed only if the Timer1 module overflow flag has been thrown
     if (TMR1IF) {
