@@ -2,8 +2,8 @@
  *  Digital Clock - A simple digital clock project to help me learn PIC  *
  *  Created by mikemadealarms on January 6, 2016 at 4:38 PM              *
  * --------------------------------------------------------------------- *
- *  Last modified by mikemadealarms on July 25, 2016 at 5:34 PM          *
- *  Last modification made was: Fixed a few typos                        *
+ *  Last modified by mikemadealarms on July 27, 2016 at 11:46 PM         *
+ *  Last modification made was: Cleaned up the comments ago              *
  *************************************************************************/
 
 #include <xc.h>
@@ -121,8 +121,8 @@ void main() {
 //Update Clock Function, updates the clock to ensure the time is kept up to date
 void updateClock() {
     timeSeconds++;  //Increment the seconds counter by 1 to indicate that half a second has passed
-    //Check to see if a minute has passed
     
+    //Check to see if a minute has passed
     if (timeSeconds == 0x78) {
         timeSeconds = 0x00;  //Reset the seconds counter back to 0 and begin counting for a minute again
         
@@ -180,7 +180,7 @@ void updateDisplay() {
  *  Interrupts  *
  ****************/
 
-//Interrupt Function, called upon an interrupt of a module or PORTB interrupt within the MCU
+//Interrupt Function, called upon an interrupt of a module
 void interrupt interruptRoutine() {
     //Proceed only if the Timer1 module overflow flag has been thrown
     if (TMR1IF) {
